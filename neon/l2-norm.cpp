@@ -47,8 +47,7 @@ int32_t l2_norm(const int16_t a[N])
     sum = 0;
     for (int i = 0; i < N; i++)
     {
-        tmp = (int32_t)a[i];
-        tmp *= tmp;
+        tmp = (int32_t)a[i] * a[i];
         tmp_sum = sum + tmp;
         if (tmp_sum < 0)
         {
