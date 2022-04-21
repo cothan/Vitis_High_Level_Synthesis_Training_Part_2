@@ -31,8 +31,10 @@ i32 adder_tree(const i32 a[16])
 adder_tree_1:
     for (auto i = 0; i < 4; i++)
     {
+#pragma HLS UNROLL
         for (auto j = 0; j < 4; j++)
         {
+#pragma HLS UNROLL
             auto prev = (i == 0) ? static_cast<i32>(0) : tmp[i];
             // tmp[i] = prev + square(a, 4*i + j);
             tmp[i] = sat_add(prev, square(a, 4*i + j));
@@ -43,6 +45,7 @@ adder_tree_2:
     // Second stage adder
     for (auto i = 0; i < 4; i++)
     {
+#pragma HLS UNROLL
         auto prev = (i == 0) ? static_cast<i32>(0) : result;
         // result = prev + tmp[i];
         result = sat_add(prev, tmp[i]);
