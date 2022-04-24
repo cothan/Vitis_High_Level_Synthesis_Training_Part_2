@@ -5,7 +5,7 @@
 #include "hls_stream.h"
 #include "ap_axi_sdata.h"
 
-#define N 200
+#define N 256
 #define SIZE N
 #define DWIDTH 32
 #define INT32_MAX ((1 << 31) - 1)
